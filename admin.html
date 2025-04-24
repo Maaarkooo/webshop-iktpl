@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electronix Admin</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Electronix Admin</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Webshop</a></li>
+        <li><a href="/logout">Kijelentkezés</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="admin-panel">
+      <h2>Új termék hozzáadása</h2>
+      <form id="admin-form">
+        <input type="text" id="termek-nev" placeholder="Termék neve" required />
+        <input type="number" id="termek-ar" placeholder="Ár (Ft)" required />
+        <button type="submit">Hozzáadás</button>
+      </form>
+
+      <div class="product-list-section">
+        <h2>Termékek listája</h2>
+        <ul id="product-list" class="product-list"></ul>
+      </div>
+
+      <div class="user-management">
+        <h2>Felhasználók kezelése</h2>
+        <form id="user-create-form">
+          <input type="text" id="uj-felhasznalo" placeholder="Új felhasználónév" required />
+          <input type="password" id="uj-jelszo" placeholder="Jelszó" required />
+          <button type="submit">Felhasználó létrehozása</button>
+        </form>
+
+        <ul class="user-list" id="user-list"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Electronix Webshop</p>
+  </footer>
+
+  <script src="frontend-admin.js"></script>
+</body>
+</html>

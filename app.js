@@ -1,20 +1,15 @@
-//app.js
-
-const termekek = [
-  { id: 1, nev: 'Bluetooth fülhallgató', ar: 15990 },
-  { id: 2, nev: 'Okosóra', ar: 29990 },
-  { id: 3, nev: 'Vezeték nélküli töltő', ar: 9990 },
-  { id: 4, nev: 'Mini hangszóró', ar: 8490 },
-];
+// app.js (frontend logika)
 
 let kosar = [];
 
-function megjelenitTermekek() {
-  const listaElem = document.querySelector('.product-list');
-  listaElem.innerHTML = '';
+async function betoltTermekek() {
+  const res = await fetch("/api/products");
+  const termekek = await res.json();
+  const listaElem = document.querySelector(".product-list");
+  listaElem.innerHTML = "";
   termekek.forEach(termek => {
-    const div = document.createElement('div');
-    div.className = 'product';
+    const div = document.createElement("div");
+    div.className = "product";
     div.innerHTML = `
       <h3>${termek.nev}</h3>
       <p>${termek.ar} Ft</p>
@@ -25,16 +20,20 @@ function megjelenitTermekek() {
 }
 
 function hozzaadKosarhoz(id) {
-  const termek = termekek.find(t => t.id === id);
-  if (termek) {
-    kosar.push(termek);
-    frissitKosar();
-  }
+  fetch("/api/products")
+    .then(res => res.json())
+    .then(termekek => {
+      const termek = termekek.find(t => t.id === id);
+      if (termek) {
+        kosar.push(termek);
+        frissitKosar();
+      }
+    });
 }
 
 function frissitKosar() {
-  const kosarElem = document.querySelector('.cart-items');
-  kosarElem.innerHTML = '';
+  const kosarElem = document.querySelector(".cart-items");
+  kosarElem.innerHTML = "";
 
   if (kosar.length === 0) {
     kosarElem.innerHTML = '<p>A kosár üres.</p>';
@@ -42,8 +41,8 @@ function frissitKosar() {
   }
 
   kosar.forEach((termek, index) => {
-    const div = document.createElement('div');
-    div.className = 'cart-item';
+    const div = document.createElement("div");
+    div.className = "cart-item";
     div.innerHTML = `
       ${termek.nev} - ${termek.ar} Ft
       <button onclick="torolTermek(${index})">Eltávolítás</button>
@@ -52,7 +51,7 @@ function frissitKosar() {
   });
 
   const osszeg = kosar.reduce((acc, t) => acc + t.ar, 0);
-  const osszegElem = document.createElement('p');
+  const osszegElem = document.createElement("p");
   osszegElem.innerHTML = `<strong>Összesen: ${osszeg} Ft</strong>`;
   kosarElem.appendChild(osszegElem);
 }
@@ -63,22 +62,22 @@ function torolTermek(index) {
 }
 
 function initRendelesForm() {
-  const form = document.querySelector('.order-form form');
-  form.addEventListener('submit', e => {
+  const form = document.querySelector(".order-form form");
+  form.addEventListener("submit", e => {
     e.preventDefault();
     if (kosar.length === 0) {
-      alert('A kosár üres!');
+      alert("A kosár üres!");
       return;
     }
-    alert('Rendelés sikeresen leadva! Köszönjük a vásárlást.');
+    alert("Rendelés sikeresen leadva! Köszönjük a vásárlást.");
     kosar = [];
     frissitKosar();
     form.reset();
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  megjelenitTermekek();
+document.addEventListener("DOMContentLoaded", () => {
+  betoltTermekek();
   frissitKosar();
   initRendelesForm();
 });

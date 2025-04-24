@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f7fb;
+  color: #333;
+}
+
+header {
+  background-color: #0077cc;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  background-color: #e0ecf8;
+  text-align: center;
+  padding: 2rem;
+}
+
+.products, .cart, .order-form, .admin-panel {
+  padding: 2rem;
+}
+
+.products h2, .cart h2, .order-form h2, .admin-panel h2 {
+  text-align: center;
+  color: #0077cc;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+  padding: 0;
+}
+
+.product, .cart-item {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.product h3 {
+  margin-top: 0;
+  color: #0077cc;
+  font-size: 1.1rem;
+}
+
+.product button, .order-form button, .admin-panel button {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.product button:hover, .order-form button:hover, .admin-panel button:hover {
+  background-color: #005fa3;
+}
+
+.cart-items {
+  margin-top: 1rem;
+}
+
+.cart-item {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.order-form form,
+.admin-panel form {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.order-form input, .admin-panel input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+}
+
+footer {
+  background-color: #0077cc;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* Mobilnézet */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+
+  .order-form form,
+  .admin-panel form {
+    padding: 0 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electronix Webshop</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Electronix</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Főoldal</a></li>
+        <li><a href="#">Termékek</a></li>
+        <li><a href="#">Kosár</a></li>
+        <li><a href="login.html">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Modern elektronikai termékek, egyszerűen</h2>
+      <p>Vásárolj minőségi termékeket, gyors kiszállítással.</p>
+    </section>
+
+    <section class="products">
+      <h2>Termékeink</h2>
+      <div class="product-list">
+        <!-- Termékek JS-ből jönnek az app.js-ből -->
+      </div>
+    </section>
+
+    <section class="cart">
+      <h2>Kosár</h2>
+      <div class="cart-items">
+        <!-- Kosár tartalom JS-ből -->
+      </div>
+    </section>
+
+    <section class="order-form">
+      <h2>Rendelési űrlap</h2>
+      <form>
+        <input type="text" placeholder="Név" required />
+        <input type="email" placeholder="Email" required />
+        <input type="text" placeholder="Szállítási cím" required />
+        <button type="submit">Rendelés leadása</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Electronix Webshop</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

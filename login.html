@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bejelentkezés - Electronix Admin</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    form {
+      background: white;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 300px;
+    }
+
+    input, button {
+      padding: 0.5rem;
+      border-radius: 0.3rem;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+
+    h2 {
+      text-align: center;
+      color: #0077cc;
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <form action="/login" method="POST">
+    <h2>Admin bejelentkezés</h2>
+    <input type="text" name="username" placeholder="Felhasználónév" required>
+    <input type="password" name="password" placeholder="Jelszó" required>
+    <button type="submit">Bejelentkezés</button>
+  </form>
+</body>
+</html>
