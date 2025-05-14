@@ -23,7 +23,7 @@ app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'login.html'));
 });
 
-// 🔓 EGYSZERŰSÍTETT bejelentkezés – titkosítás nélkül (csak teszteléshez)
+// bejelentkezés – tesztelés alatt
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
   const user = users.find(u => u.username === username && u.password === password);
