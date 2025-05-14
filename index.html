@@ -2,83 +2,9 @@
 <html lang="hu">
 <head>
   <meta charset="UTF-8" />
-  <meta nev="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Electronix Webshop</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #333;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    nav ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-    }
-    .alap {
-      text-align: center;
-      padding: 2rem;
-      background-color: #f0f0f0;
-    }
-    .termek {
-      padding: 2rem;
-    }
-    .termek-lista {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-    }
-    .termek {
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 1rem;
-      max-width: 200px;
-      text-align: center;
-      background-color: #fff;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .termek img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 5px;
-    }
-    .kosarba {
-      margin-top: 10px;
-      padding: 8px 12px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .kosarba:hover {
-      background-color: #0056b3;
-    }
-    .cart, .order-form {
-      padding: 2rem;
-      background-color: #f9f9f9;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #333;
-      color: white;
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -86,40 +12,23 @@
     <nav>
       <ul>
         <li><a href="#">Főoldal</a></li>
-        <li><a href="#">Termékek</a></li>
-        <li><a href="#">Kosár</a></li>
+        <!--<li><a href="products">Termékek</a></li>
+        <li><a href="cart">Kosár</a></li>-->
         <li><a href="login.html">Admin</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section class="alap">
+    <section class="hero">
       <h2>Modern elektronikai termékek, egyszerűen</h2>
       <p>Vásárolj minőségi termékeket, gyors kiszállítással.</p>
     </section>
 
-    <section class="termeks">
+    <section class="products">
       <h2>Termékeink</h2>
-      <div class="termek-lista">
-        <div class="termek">
-          <img src="letöltés.jfif" alt="Fender Stratocaster" />
-          <h3>Fender Stratocaster</h3>
-          <p>Ár: 250.000 Ft</p>
-          <button class="kosarba">Kosárba</button>
-        </div>
-        <div class="termek">
-          <img src="2529760.yamaha-f310-mk2-natural.jpg" alt="Yamaha F310" />
-          <h3>Yamaha F310</h3>
-          <p>Ár: 60.000 Ft</p>
-          <button class="kosarba">Kosárba</button>
-        </div>
-        <div class="termek">
-          <img src="letöltés (1).jfif" alt="Ibanez GSR200" />
-          <h3>Ibanez GSR200</h3>
-          <p>Ár: 90.000 Ft</p>
-          <button class="kosarba">Kosárba</button>
-        </div>
+      <div class="product-list">
+        <!-- Termékek JS-ből jönnek az app.js-ből -->
       </div>
     </section>
 
@@ -145,23 +54,6 @@
     <p>&copy; 2025 Electronix Webshop</p>
   </footer>
 
-  <script>
-    document.kosarbaEventlistaener("DOMContentLoaded", () => {
-      const kosar = document.querySelector(".cart-items");
-      const buttons = document.querySelectorAll(".kosarba");
-
-      buttons.forEach((button) => {
-        button.kosarbaEventlistaener("click", () => {
-          const termek = button.parentElement;
-          const nev = termek.querySelector("h3").textContent;
-          const ar = termek.querySelector("p").textContent;
-
-          const item = document.createElement("div");
-          item.textContent = `${nev} - ${ar}`;
-          kosar.appendChild(item);
-        });
-      });
-    });
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
